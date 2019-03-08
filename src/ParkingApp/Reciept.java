@@ -15,12 +15,22 @@ public class Reciept  {
     }
 
     private void calculateHoursParked(){
+        this.ticket.getCheck_In_Time();
+        this.ticket.getCheck_Out_Time();
+
 
     }
-    private void generateReciept(){
+    public void generateReciept(){
 
     }
-    private void generateLostReciept(){
+    public void generateLostReciept(){
+
+        System.out.println("Best Value Parking Garage");
+        System.out.println("\n============================");
+        System.out.println("\nReciept for vehicle id " + this.ticket.getVehicleID());
+        System.out.println("\n\nLost Ticket");
+        System.out.println("$" + LOST_TICKET_FEE);
+
 
     }
 

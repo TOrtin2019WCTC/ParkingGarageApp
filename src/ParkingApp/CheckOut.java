@@ -41,8 +41,17 @@ public class CheckOut {
         int index = random.nextInt(garage.getParked_Cars().size());
         Ticket ticketToRemove = garage.getParked_Cars().get(index);
         garage.removeCar(ticketToRemove);
+        Reciept reciept = new Reciept(ticketToRemove);
 
-
+    }
+    private static void lostTicket(){
+        ParkingGarage garage = new ParkingGarage();
+        Random random = new Random();
+        int index = random.nextInt(garage.getParked_Cars().size());
+        Ticket ticketToRemove = garage.getParked_Cars().get(index);
+        garage.removeCar(ticketToRemove);
+        Reciept reciept = new Reciept(ticketToRemove);
+        reciept.generateLostReciept();
     }
 }
 

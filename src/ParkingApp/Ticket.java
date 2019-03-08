@@ -47,6 +47,7 @@ public class Ticket implements Serializable {
 
         check_In_Time = LocalTime.of(hours, minutes);
 
+        System.out.println("CHeck in time" + check_In_Time);
 
         return check_In_Time;
     }
