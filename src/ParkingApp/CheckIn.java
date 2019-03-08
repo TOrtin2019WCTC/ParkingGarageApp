@@ -9,7 +9,6 @@ public class CheckIn {
    private List<Ticket> parked_Cars;
 
     public CheckIn(){
-
     }
 
 

@@ -46,7 +46,8 @@ public class CheckOut {
         generateRandomCheckOutTime(ticketToRemove);
         garage.removeCar(index);
        // Reciept reciept = new Reciept(ticketToRemove);
-        calculateFees(ticketToRemove);
+        PricesAndFees.calculateFees(ticketToRemove);
+        Main.totalCheckOuts++;
 
     }
 
@@ -58,6 +59,8 @@ public class CheckOut {
         garage.removeCar(index);
         Reciept reciept = new Reciept(ticketToRemove);
         reciept.generateLostReciept();
+        Main.totalLostTickets++;
+        Main.lostTicketFees += PricesAndFees.LOST_TICKET_FEE;
     }
 
     private static LocalTime generateRandomCheckOutTime(Ticket ticket) {
@@ -75,30 +78,30 @@ public class CheckOut {
         return checkOutTime;
     }
 
-    private static String calculateFees(Ticket ticket) {
-        NumberFormat numberFormatter = NumberFormat.getCurrencyInstance();
-        double fee = 0;
-        int hours = 0;
-        int minutes = 0;
-        int minimumHours = 3;
-
-        hours = (ticket.getCheck_Out_Time().getHour() - ticket.getCheck_In_Time().getHour());
-        minutes = (ticket.getCheck_Out_Time().getMinute() - ticket.getCheck_In_Time().getMinute());
-
-        hours = minutes > 0 ? hours + 1 : hours + 0;
-
-        if (hours <= minimumHours) {
-            fee = PricesAndFees.MINIMUM_FEE;
-        } else if(hours >= 15){
-           fee = PricesAndFees.MINIMUM_FEE;
-        }else{
-            int extraHours = hours - minimumHours;
-            fee = (extraHours * 1) + PricesAndFees.MINIMUM_FEE;
-        }
-
-        System.out.println(fee);
-
-        return numberFormatter.format(fee);
-    }
+//    public static String calculateFees(Ticket ticket) {
+//        NumberFormat numberFormatter = NumberFormat.getCurrencyInstance();
+//        double fee = 0;
+//        int hours = 0;
+//        int minutes = 0;
+//        int minimumHours = 3;
+//
+//        hours = (ticket.getCheck_Out_Time().getHour() - ticket.getCheck_In_Time().getHour());
+//        minutes = (ticket.getCheck_Out_Time().getMinute() - ticket.getCheck_In_Time().getMinute());
+//
+//        hours = minutes > 0 ? hours + 1 : hours + 0;
+//
+//        if (hours <= minimumHours) {
+//            fee = PricesAndFees.MINIMUM_FEE;
+//        } else if(hours >= 15){
+//           fee = PricesAndFees.MINIMUM_FEE;
+//        }else{
+//            int extraHours = hours - minimumHours;
+//            fee = (extraHours * 1) + PricesAndFees.MINIMUM_FEE;
+//        }
+//
+//        System.out.println(fee);
+//
+//        return numberFormatter.format(fee);
+//    }
 }
 
