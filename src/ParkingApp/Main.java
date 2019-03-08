@@ -1,4 +1,5 @@
-import java.time.LocalDateTime;
+package ParkingApp;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -13,6 +14,7 @@ public class Main {
        in.fileRead();
        in.fileClose();
        list = in.getParked();
+       ParkingGarage garage = new ParkingGarage((list));
 
         String ans;
 
@@ -23,7 +25,7 @@ public class Main {
 
             switch(ans){
                 case "1":
-                    CheckIn checkIn = new CheckIn(new Ticket(0, LocalDateTime.now()),list);
+                    CheckIn checkIn = new CheckIn();
                     list = checkIn.getParked_Cars();
                     checkIn.Machine();
                     break;

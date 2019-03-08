@@ -1,3 +1,5 @@
+package ParkingApp;
+
 import java.io.*;
 import java.util.List;
 
@@ -6,11 +8,11 @@ class FileOutput {
 
     FileOutputStream fos = null;
     ObjectOutputStream obj = null;
-    private final String FILE_NAME = "/Users/tim/ParkingApp_Test/src/ParkingApp/Garage.txt";
+    private String path = "/Users/tim/ParkingApp_Test/src/ParkingApp/Garage.txt";
 
     public FileOutput() {
         try {
-            fos = new FileOutputStream(FILE_NAME);
+            fos = new FileOutputStream(path);
             obj = new ObjectOutputStream(fos);
 
         }
