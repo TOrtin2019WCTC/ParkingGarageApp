@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CheckIn {
-   private Scanner keyboard = new Scanner(System.in);
+   public static Scanner keyboard = new Scanner(System.in);
    private List<Ticket> parked_Cars;
 
     public CheckIn(){
@@ -14,7 +14,7 @@ public class CheckIn {
 
 
 
-    public void Machine() {
+    public static void Machine() {
         System.out.println("Best Value Parking Garage\n===============================");
         System.out.println("1 - Check/In");
         System.out.println("3 - Close Garage");

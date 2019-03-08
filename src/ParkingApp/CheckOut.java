@@ -5,7 +5,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class CheckOut {
-    private Scanner keyboard = new Scanner(System.in);
+    public static Scanner keyboard = new Scanner(System.in);
     private List<Ticket> parked_Cars;
     private int ticketNumber;
 
@@ -15,7 +15,7 @@ public class CheckOut {
     }
 
 
-    public void machine() {
+    static void machine() {
         System.out.println("Best Value Parking Garage\n===============================");
         System.out.println("1 - Check/Out");
         System.out.println("2 - Lost Ticket");
@@ -34,7 +34,7 @@ public class CheckOut {
         }
     }
 
-    public void checkOut() {
+    private static void checkOut() {
 
         ParkingGarage garage = new ParkingGarage();
         Random random = new Random();
