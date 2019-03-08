@@ -31,13 +31,14 @@ public class Ticket implements Serializable {
         return check_In_Time;
     }
 
-    public void setLocalTime() {
+    public void setCheck_Out_Time(LocalTime check_Out_Time) {
         this.check_Out_Time = check_Out_Time;
     }
 
     public LocalTime getCheck_Out_Time() {
         return check_Out_Time;
     }
+
 
     private LocalTime generateRandomCheckInTime() {
         Random random = new Random();

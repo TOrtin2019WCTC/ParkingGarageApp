@@ -53,8 +53,8 @@ public class ParkingGarage {
         System.out.println("total cars added " + parked_Cars.size());
     }
 
-    public void removeCar(Ticket ticket) {
-        parked_Cars.remove(ticket);
+    public void removeCar(int i) {
+        parked_Cars.remove(i);
         System.out.println(parked_Cars.size());
     }
     public void setCarsAdded(int i){

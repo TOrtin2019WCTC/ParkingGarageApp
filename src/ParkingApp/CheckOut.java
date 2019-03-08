@@ -1,5 +1,8 @@
 package ParkingApp;
 
+import java.text.NumberFormat;
+import java.time.LocalTime;
+import java.util.Currency;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -40,8 +43,9 @@ public class CheckOut {
         Random random = new Random();
         int index = random.nextInt(garage.getParked_Cars().size());
         Ticket ticketToRemove = garage.getParked_Cars().get(index);
-        garage.removeCar(ticketToRemove);
-        Reciept reciept = new Reciept(ticketToRemove);
+        generateRandomCheckOutTime(ticketToRemove);
+        garage.removeCar(index);
+       // Reciept reciept = new Reciept(ticketToRemove);
         calculateFees(ticketToRemove);
 
     }
@@ -51,13 +55,29 @@ public class CheckOut {
         Random random = new Random();
         int index = random.nextInt(garage.getParked_Cars().size());
         Ticket ticketToRemove = garage.getParked_Cars().get(index);
-        garage.removeCar(ticketToRemove);
+        garage.removeCar(index);
         Reciept reciept = new Reciept(ticketToRemove);
         reciept.generateLostReciept();
     }
 
+    private static LocalTime generateRandomCheckOutTime(Ticket ticket) {
+        LocalTime checkOutTime = null;
+        Random random = new Random();
+        int hours = 0;
+        int minutes = 0;
+
+        hours = random.nextInt(23 + 1 - 13) + 13 ;
+        minutes = random.nextInt(58) + 1;
+
+        checkOutTime = LocalTime.of(hours, minutes);
+        ticket.setCheck_Out_Time(checkOutTime);
+
+        return checkOutTime;
+    }
+
     private static String calculateFees(Ticket ticket) {
-        int fee = 0;
+        NumberFormat numberFormatter = NumberFormat.getCurrencyInstance();
+        double fee = 0;
         int hours = 0;
         int minutes = 0;
         int minimumHours = 3;
@@ -65,7 +85,7 @@ public class CheckOut {
         hours = (ticket.getCheck_Out_Time().getHour() - ticket.getCheck_In_Time().getHour());
         minutes = (ticket.getCheck_Out_Time().getMinute() - ticket.getCheck_In_Time().getMinute());
 
-        hours += minutes > 0 ? 1 : 0;
+        hours = minutes > 0 ? hours + 1 : hours + 0;
 
         if (hours <= minimumHours) {
             fee = PricesAndFees.MINIMUM_FEE;
@@ -78,7 +98,7 @@ public class CheckOut {
 
         System.out.println(fee);
 
-        return ("$"+fee);
+        return numberFormatter.format(fee);
     }
 }
 
