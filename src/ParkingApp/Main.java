@@ -8,23 +8,25 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
+        int carsAdded = 0;
+        int carsRemoved = 0;
         List<Ticket> list = new ArrayList<>();
-        new CheckIn();
-       FileInput in = new FileInput();
-       in.fileRead();
-       in.fileClose();
-       list = in.getParked();
-       ParkingGarage garage = new ParkingGarage();
-       garage.setParked_Cars(list);
+        ParkingGarage garage = new ParkingGarage(list);
+        //FileInput in = new FileInput();
+        for (int i = 0; i < 50;i++){
+            list.add(new Ticket());
+        }
+        //in.fileClose();
+        //garage.setParked_Cars(list);
         System.out.println("GARAGE OPEN\n\n");
         String ans;
 
-        do{
+        do {
             System.out.println("1 Check/In");
             System.out.println("2 Check/Out");
             ans = keyboard.nextLine();
 
-            switch(ans){
+            switch (ans) {
                 case "1":
                     CheckIn.Machine();
                     break;
@@ -32,11 +34,12 @@ public class Main {
                     CheckOut.machine();
             }
 
-        }while(!ans.equals("3"));
-        FileOutput out = new FileOutput();
-        out.fileWrite(list);
-        out.fileClose();
+        } while (!ans.equals("3"));
 
+        garage.testDisplay();
+//        FileOutput out = new FileOutput();
+//        out.fileWrite(list);
+//        out.fileClose();
 
 
     }

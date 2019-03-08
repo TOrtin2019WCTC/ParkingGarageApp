@@ -29,7 +29,7 @@ public class CheckOut {
                 checkOut();
                 break;
             case "2":
-
+                lostTicket();
                 break;
         }
     }
@@ -42,9 +42,11 @@ public class CheckOut {
         Ticket ticketToRemove = garage.getParked_Cars().get(index);
         garage.removeCar(ticketToRemove);
         Reciept reciept = new Reciept(ticketToRemove);
+        calculateFees(ticketToRemove);
 
     }
-    private static void lostTicket(){
+
+    private static void lostTicket() {
         ParkingGarage garage = new ParkingGarage();
         Random random = new Random();
         int index = random.nextInt(garage.getParked_Cars().size());
@@ -52,6 +54,31 @@ public class CheckOut {
         garage.removeCar(ticketToRemove);
         Reciept reciept = new Reciept(ticketToRemove);
         reciept.generateLostReciept();
+    }
+
+    private static String calculateFees(Ticket ticket) {
+        int fee = 0;
+        int hours = 0;
+        int minutes = 0;
+        int minimumHours = 3;
+
+        hours = (ticket.getCheck_Out_Time().getHour() - ticket.getCheck_In_Time().getHour());
+        minutes = (ticket.getCheck_Out_Time().getMinute() - ticket.getCheck_In_Time().getMinute());
+
+        hours += minutes > 0 ? 1 : 0;
+
+        if (hours <= minimumHours) {
+            fee = PricesAndFees.MINIMUM_FEE;
+        } else if(hours >= 15){
+           fee = PricesAndFees.MINIMUM_FEE;
+        }else{
+            int extraHours = hours - minimumHours;
+            fee = (extraHours * 1) + PricesAndFees.MINIMUM_FEE;
+        }
+
+        System.out.println(fee);
+
+        return ("$"+fee);
     }
 }
 

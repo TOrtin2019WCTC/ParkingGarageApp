@@ -15,11 +15,11 @@ public class CheckIn {
 
 
     public static void Machine() {
-        System.out.println("Best Value Parking Garage\n===============================");
+        System.out.println("\n\nBest Value Parking Garage\n===============================");
         System.out.println("1 - Check/In");
         System.out.println("3 - Close Garage");
         System.out.println("=>_");
-        System.out.println("==================================");
+        System.out.println("==================================\n\n");
 
         String ans = keyboard.nextLine();
 

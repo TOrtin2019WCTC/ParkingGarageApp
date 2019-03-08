@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class FileInput {
     FileInputStream fis = null;
     ObjectInputStream obj = null;
-    List<Ticket> parked;
+    List parked;
     private final String FILE_NAME = "/Users/tim/ParkingApp_Test/src/ParkingApp/Garage.txt";
 
     public FileInput(){
@@ -23,12 +23,12 @@ public class FileInput {
 
 
     }
-    public void fileRead(){
+    public List<Ticket> fileRead(){
         parked = new ArrayList<>();
         boolean endOfFile = false;
         while(endOfFile == false){
             try{
-                parked = ((List) obj.readObject());
+                parked = (List) obj.readObject();
                 //parked.add(ticket);
             }catch(Exception e){
                 e.printStackTrace();
@@ -38,6 +38,7 @@ public class FileInput {
             endOfFile = true;
         }
 
+        return parked;
     }
 
     public void fileClose(){

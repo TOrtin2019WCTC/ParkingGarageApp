@@ -2,6 +2,7 @@ package ParkingApp;
 
 import java.io.Serializable;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -11,11 +12,12 @@ public class Ticket implements Serializable {
     private LocalTime check_Out_Time;
 
 
+
     public Ticket() {
         this.vehicleID = generateVehicleID();
         this.check_In_Time = generateRandomCheckInTime();
         this.check_Out_Time = null;
-        ParkingGarage garage = new ParkingGarage();
+        ParkingGarage garage = new ParkingGarage(this);
         garage.addCar(this);
 
     }
@@ -42,7 +44,7 @@ public class Ticket implements Serializable {
         int hours = 0;
         int minutes = 0;
 
-        hours = random.nextInt(7 * 10) + 1;
+        hours = random.nextInt(11 + 1 - 7) + 7;;
         minutes = random.nextInt(58) + 1;
 
         check_In_Time = LocalTime.of(hours, minutes);
@@ -57,7 +59,7 @@ public class Ticket implements Serializable {
         int hours = 0;
         int minutes = 0;
 
-        hours = random.nextInt(1 * 10) + 1;
+        hours = random.nextInt(23 + 1 - 13) + 13 ;
         minutes = random.nextInt(58) + 1;
 
         check_Out_Time = LocalTime.of(hours, minutes);
@@ -66,21 +68,29 @@ public class Ticket implements Serializable {
     }
 
     private int generateVehicleID() {
-        boolean isAMatch = false;
+        List<Integer> ticketID = new ArrayList<>();
         ParkingGarage garage = new ParkingGarage();
+        boolean isAMatch = true;
         int id = (int) (Math.random() * (500 - 1) + 1);
-
-        do {
+        if (garage.getParked_Cars().size() > 0) {
             for (Ticket t : garage.getParked_Cars()) {
-                if (id == t.getVehicleID()) {
-                    isAMatch = true;
+                ticketID.add(t.getVehicleID());
+            }
+        } else {
+            vehicleID = id;
+        }
+
+        if (ticketID.size() > 0) {
+            while (isAMatch) {
+                if (!ticketID.contains(id)) {
+                    isAMatch = false;
+                    vehicleID = id;
+                }else{
                     id = (int) (Math.random() * (500 - 1) + 1);
                 }
-
             }
-        } while (isAMatch = true);
+        }
 
-        vehicleID = id;
 
         return vehicleID;
 
