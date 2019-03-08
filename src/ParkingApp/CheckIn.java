@@ -1,5 +1,6 @@
 package ParkingApp;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -27,8 +28,7 @@ public class CheckIn {
                 Ticket t = new Ticket();
                 break;
             case "3":
-
-
+                closeGarage();
                 break;
         }
     }
@@ -37,12 +37,24 @@ public class CheckIn {
         return parked_Cars;
     }
 
-    public void CheckIn(){
-        Ticket ticket = new Ticket();
-        new ParkingGarage().addCar(ticket);
+//    public void CheckIn(){
+//        Ticket ticket = new Ticket();
+//        new ParkingGarage().addCar(ticket);
+//
+//    }
+    private static void closeGarage(){
 
-    }
-    public void closeGarage(){
+        Main.totalFees = Main.totalCheckOutFees + Main.totalLostTicketFees;
+        //NumberFormat numberFormatter = NumberFormat.getCurrencyInstance();
+        System.out.println("\n\nBest Value Parking Garage");
+        System.out.println("\n============================");
+        System.out.println("Activity to Date");
+        System.out.println(PricesAndFees.currencyFormatter(Main.totalCheckOutFees) + " was collected from " + Main.totalCheckOuts +
+                " Check Ins");
+        System.out.println(PricesAndFees.currencyFormatter(Main.totalLostTicketFees) + " was collected from " + Main.totalLostTickets +
+                " Lost Tickets\n");
+        System.out.println(PricesAndFees.currencyFormatter(Main.totalFees) + " was collected overall");
+        System.out.println("------------------------------\n\n");
 
     }
 

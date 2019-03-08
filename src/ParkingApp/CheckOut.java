@@ -60,7 +60,7 @@ public class CheckOut {
         Reciept reciept = new Reciept(ticketToRemove);
         reciept.generateLostReciept();
         Main.totalLostTickets++;
-        Main.lostTicketFees += PricesAndFees.LOST_TICKET_FEE;
+        Main.totalLostTicketFees += PricesAndFees.LOST_TICKET_FEE;
     }
 
     private static LocalTime generateRandomCheckOutTime(Ticket ticket) {
