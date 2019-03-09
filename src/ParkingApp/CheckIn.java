@@ -12,8 +12,6 @@ public class CheckIn {
     public CheckIn(){
     }
 
-
-
     static void machine() {
         System.out.println("\n\n\tBest Value Parking Garage");
         System.out.println("\n\t===============================");
@@ -28,6 +26,7 @@ public class CheckIn {
             case "1":
                 Main.totalCheckIns++;
                 Ticket t = new Ticket();
+                System.out.println("Welcome, your check-in time is: " + t.getCheck_In_Time());
                 break;
             case "3":
                 closeGarage();
@@ -48,15 +47,15 @@ public class CheckIn {
 
         Main.totalFees = Main.totalCheckOutFees + Main.totalLostTicketFees;
         //NumberFormat numberFormatter = NumberFormat.getCurrencyInstance();
-        System.out.println("\n\nBest Value Parking Garage");
-        System.out.println("\n============================");
-        System.out.println("Activity to Date\n");
-        System.out.println(PricesAndFees.currencyFormatter(Main.totalCheckOutFees) + " was collected from " + Main.totalCheckIns +
+        System.out.println("\n\n\tBest Value Parking Garage");
+        System.out.println("\n\t===============================");
+        System.out.println("\tActivity to Date\n");
+        System.out.println("\t" + PricesAndFees.currencyFormatter(Main.totalCheckOutFees) + " was collected from " + Main.totalCheckIns +
                 " Check Ins");
-        System.out.println(PricesAndFees.currencyFormatter(Main.totalLostTicketFees) + " was collected from " + Main.totalLostTickets +
+        System.out.println("\t" + PricesAndFees.currencyFormatter(Main.totalLostTicketFees) + " was collected from " + Main.totalLostTickets +
                 " Lost Tickets\n");
-        System.out.println(PricesAndFees.currencyFormatter(Main.totalFees) + " was collected overall");
-        System.out.println("------------------------------\n\n");
+        System.out.println("\t" + PricesAndFees.currencyFormatter(Main.totalFees) + " was collected overall");
+        System.out.println("\t------------------------------\n\n");
 
     }
 

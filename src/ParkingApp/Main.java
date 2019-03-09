@@ -15,17 +15,13 @@ public class Main {
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
         String ans;
-        int carsAdded = 0;
-        int carsRemoved = 0;
-
-       // List<Ticket> list = new ArrayList<>();
+        // List<Ticket> list = new ArrayList<>();
         ParkingGarage garage = new ParkingGarage();
         garage.garageListInitializer();
         //FileInput in = new FileInput();
         for (int i = 0; i < 50;i++){
             new Ticket();
         }
-
         //in.fileClose();
         //garage.setParked_Cars(list);
         System.out.println("GARAGE OPEN\n\n");
@@ -37,7 +33,8 @@ public class Main {
         do {
             System.out.println("\t----------------------");
             System.out.println("\tPRESS 1 TO CHECK IN");
-            System.out.println("\tPRESS2 TO CHECK OUT");
+            System.out.println("\tPRESS 2 TO CHECK OUT");
+            System.out.println("\tPRESS 3 TO EXIT PROGRAM");
             System.out.println("\t----------------------");
             ans = keyboard.nextLine();
 
@@ -52,8 +49,7 @@ public class Main {
         } while (!ans.equals("3"));
 
         totalFees = totalCheckOutFees + totalLostTicketFees;
-        garage.testDisplay();
-      FileOutput out = new FileOutput();
+        FileOutput out = new FileOutput();
         out.fileWrite(garage.getParked_Cars());
         out.fileClose();
 
