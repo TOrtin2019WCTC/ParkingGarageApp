@@ -1,6 +1,7 @@
 package ParkingApp;
 
 import java.text.NumberFormat;
+import java.time.format.DateTimeFormatter;
 
 public class Reciept  {
 
@@ -15,14 +16,15 @@ public class Reciept  {
 
     public void generateReciept(){
 
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("HH:mm");
         System.out.println("\n\n\tBest Value Parking Garage");
         System.out.println("\n\t===============================");
         System.out.println("\n\tReceipt for vehicle id " + this.ticket.getVehicleID());
 
         System.out.println("\n\t" + CheckOut.calculateHours(this.ticket) + " hours "
                 + CheckOut.calculateMinutes(this.ticket) + " minutes parked"
-                + "\n" + this.ticket.getCheck_In_Time()
-                + "am - " + this.ticket.getCheck_Out_Time()+ "pm");
+                + "\n\t" + fmt.format(this.ticket.getCheck_In_Time())
+                + "am - " + fmt.format(this.ticket.getCheck_Out_Time()) + "pm");
 
         System.out.println("\n\t" + PricesAndFees.currencyFormatter(PricesAndFees.calculateFees(this.ticket)));
         System.out.println("\n\t------------------------------\n\n");
