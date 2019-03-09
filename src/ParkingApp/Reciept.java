@@ -16,7 +16,7 @@ public class Reciept  {
 
     public void generateReciept(){
 
-        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("HH:mm");
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("h:mm");
         System.out.println("\n\n\tBest Value Parking Garage");
         System.out.println("\n\t===============================");
         System.out.println("\n\tReceipt for vehicle id " + this.ticket.getVehicleID());
