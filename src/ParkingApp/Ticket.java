@@ -16,8 +16,7 @@ public class Ticket implements Serializable {
         this.vehicleID = generateVehicleID();
         this.check_In_Time = generateRandomCheckInTime();
         this.check_Out_Time = null;
-        ParkingGarage garage = new ParkingGarage(this);
-        garage.addCar(this);
+        Main.garage.addCar(this);
 
     }
 
@@ -50,7 +49,7 @@ public class Ticket implements Serializable {
         return check_In_Time;
     }
 
-    private LocalTime generateRandomCheckOutTime() {
+    public LocalTime generateRandomCheckOutTime() {
         Random random = new Random();
         int hours = 0;
         int minutes = 0;

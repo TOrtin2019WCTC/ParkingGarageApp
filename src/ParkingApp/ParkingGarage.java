@@ -7,27 +7,13 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
- class ParkingGarage {
+class ParkingGarage {
 
     static List<Ticket> parked_Cars;
     private boolean isListInitialized = false;
-     private final String TICKET_PATH = "/Users/tim/ParkingApp_Test/src/ParkingApp/files/Garage.txt";
-    //private List<String> garageInfoToDate;
+    private final String TICKET_PATH = "/Users/tim/ParkingApp_Test/src/ParkingApp/files/Garage.txt";
 
-
-    public ParkingGarage(List<Ticket> list) {
-        //parked_Cars = new ArrayList<>();
-        //parked_Cars = list;
-//        totalMoneyCollectedToDate = 0;
-//        garageInfoToDate = new ArrayList<>();
-//        totalCars = new ArrayList<>();
-//        carsAdded = new ArrayList<>();
-
-    }
-    public ParkingGarage(Ticket ticket){
-
-    }
-    public ParkingGarage(){
+    public ParkingGarage() {
 
     }
 
@@ -36,9 +22,6 @@ import java.util.List;
         return parked_Cars;
     }
 
-    public void setParked_Cars(List<Ticket> parked_Cars) {
-        this.parked_Cars = parked_Cars;
-    }
 
     public void addCar(Ticket ticket) {
         parked_Cars.add(ticket);
@@ -49,44 +32,45 @@ import java.util.List;
     }
 
 
-    public void garageListInitializer(){
-        while(!isListInitialized){
+    public void garageListInitializer() {
+        while (!isListInitialized) {
             parked_Cars = new ArrayList<>();
             this.isListInitialized = true;
         }
 
     }
-    public void writeTicketsToFile(){
+
+    public void writeTicketsToFile() {
 
         ObjectOutputStream obj;
 
-        try{
+        try {
             obj = new ObjectOutputStream(new FileOutputStream(TICKET_PATH));
             obj.writeObject(parked_Cars);
 
             obj.close();
 
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             e.getMessage();
         }
     }
 
-    public void readTicketsFromFile(){
+    public void readTicketsFromFile() {
 
         ObjectInputStream in;
         boolean endOfFile = false;
 
 
-        try{
+        try {
             in = new ObjectInputStream(new FileInputStream(TICKET_PATH));
 
-            while(!endOfFile){
-                parked_Cars = (List)in.readObject();
+            while (!endOfFile) {
+                parked_Cars = (List) in.readObject();
                 endOfFile = true;
             }
 
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             e.getMessage();
         }

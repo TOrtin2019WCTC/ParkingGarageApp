@@ -1,13 +1,12 @@
 package ParkingApp;
 
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Scanner;
 
 public class Main {
 
 
-     static ParkingGarage garage = new ParkingGarage();
+    static ParkingGarage garage;
 
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
@@ -23,9 +22,8 @@ public class Main {
         System.out.println("There are currently " + garage.getParked_Cars().size() +
                 " schmucks who haven't left the garage yet\n\n");
 
-        CheckIn.machine();
-        CheckOut.machine();
-
+        new CheckIn();
+        new CheckOut();
 
         do {
             System.out.println("\t----------------------");
@@ -37,10 +35,10 @@ public class Main {
 
             switch (ans) {
                 case "1":
-                    CheckIn.machine();
+                    new CheckIn();
                     break;
                 case "2":
-                    CheckOut.machine();
+                    new CheckOut();
             }
 
         } while (!ans.equals("3"));

@@ -8,17 +8,15 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class CheckOut {
-    public static Scanner keyboard = new Scanner(System.in);
-//    private List<Ticket> parked_Cars;
-//    private int ticketNumber;
 
+    public static Scanner keyboard = new Scanner(System.in);
 
     public CheckOut() {
         machine();
     }
 
 
-    static void machine() {
+    public void machine() {
         System.out.println("\n\n\tBest Value Parking Garage");
         System.out.println("\n\t===============================");
         System.out.println("\t1 - Check/Out");
@@ -38,32 +36,31 @@ public class CheckOut {
         }
     }
 
-    private static void checkOut() {
+    private void checkOut() {
 
         Random random = new Random();
         int index = random.nextInt(Main.garage.getParked_Cars().size());
         Ticket ticketToRemove = Main.garage.getParked_Cars().get(index);
         ticketToRemove.setCheck_Out_Time(generateRandomCheckOutTime());
         Main.garage.removeCar(index);
-        Reciept reciept = new Reciept(ticketToRemove);
-        reciept.generateReciept();
-        //PricesAndFees.calculateFees(ticketToRemove);
+        Receipt reciept = new Receipt(ticketToRemove);
+        reciept.generateReceipt();
 
 
     }
 
-    private static void lostTicket() {
+    private void lostTicket() {
         Random random = new Random();
         int index = random.nextInt(Main.garage.getParked_Cars().size());
         Ticket ticketToRemove = Main.garage.getParked_Cars().get(index);
         Main.garage.removeCar(index);
-        Reciept reciept = new Reciept(ticketToRemove);
-        reciept.generateLostReciept();
+        Receipt reciept = new Receipt(ticketToRemove);
+        reciept.generateLostReceipt();
         GarageData.totalLostTickets++;
         GarageData.totalLostTicketFees += PricesAndFees.LOST_TICKET_FEE;
     }
 
-    private static LocalTime generateRandomCheckOutTime() {
+    private LocalTime generateRandomCheckOutTime() {
         LocalTime checkOutTime = null;
         Random random = new Random();
         int hours = 0;
@@ -73,15 +70,14 @@ public class CheckOut {
         minutes = random.nextInt(58) + 1;
 
         checkOutTime = LocalTime.of(hours, minutes);
-       // ticket.setCheck_Out_Time(checkOutTime);
 
         return checkOutTime;
     }
 
     static long calculateHours(Ticket ticket) {
-         long hours = 0;
+        long hours = 0;
 
-         hours = Duration.between(ticket.getCheck_In_Time(),ticket.getCheck_Out_Time()).toHours();
+        hours = Duration.between(ticket.getCheck_In_Time(), ticket.getCheck_Out_Time()).toHours();
 
         return hours;
     }
@@ -89,40 +85,14 @@ public class CheckOut {
     static long calculateMinutes(Ticket ticket) {
         long minutes = 0;
 
-        minutes = Duration.between(ticket.getCheck_In_Time(),ticket.getCheck_Out_Time()).toMinutes();
+        minutes = Duration.between(ticket.getCheck_In_Time(), ticket.getCheck_Out_Time()).toMinutes();
 
-        while (minutes > 60){
+        while (minutes > 60) {
             minutes -= 60;
         }
         return minutes;
     }
 
 
-
-//    public static String calculateFees(Ticket ticket) {
-//        NumberFormat numberFormatter = NumberFormat.getCurrencyInstance();
-//        double fee = 0;
-//        int hours = 0;
-//        int minutes = 0;
-//        int minimumHours = 3;
-//
-//        hours = (ticket.getCheck_Out_Time().getHour() - ticket.getCheck_In_Time().getHour());
-//        minutes = (ticket.getCheck_Out_Time().getMinute() - ticket.getCheck_In_Time().getMinute());
-//
-//        hours = minutes > 0 ? hours + 1 : hours + 0;
-//
-//        if (hours <= minimumHours) {
-//            fee = PricesAndFees.MINIMUM_FEE;
-//        } else if(hours >= 15){
-//           fee = PricesAndFees.MINIMUM_FEE;
-//        }else{
-//            int extraHours = hours - minimumHours;
-//            fee = (extraHours * 1) + PricesAndFees.MINIMUM_FEE;
-//        }
-//
-//        System.out.println(fee);
-//
-//        return numberFormatter.format(fee);
-//    }
 }
 

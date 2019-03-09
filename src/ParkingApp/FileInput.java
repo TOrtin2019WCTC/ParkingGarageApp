@@ -13,35 +13,36 @@ public class FileInput {
     List parked;
     private final String FILE_NAME = "/Users/tim/ParkingApp_Test/src/ParkingApp/Garage.txt";
 
-    public FileInput(){
-        try{
+    public FileInput() {
+        try {
             fis = new FileInputStream(FILE_NAME);
             obj = new ObjectInputStream(fis);
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
 
     }
-    public List<Ticket> fileRead(){
+
+    public List<Ticket> fileRead() {
         parked = new ArrayList<>();
         boolean endOfFile = false;
-        while(endOfFile == false){
-            try{
+        while (endOfFile == false) {
+            try {
                 parked = (List) obj.readObject();
                 //parked.add(ticket);
-            }catch(Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 
-           // System.out.println(parked.toString());
+            // System.out.println(parked.toString());
             endOfFile = true;
         }
 
         return parked;
     }
 
-    public void fileClose(){
+    public void fileClose() {
 
         try {
             fis.close();
@@ -52,7 +53,7 @@ public class FileInput {
 
     }
 
-    public List getParked(){
+    public List getParked() {
         return parked;
     }
 

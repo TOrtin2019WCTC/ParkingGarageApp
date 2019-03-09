@@ -23,42 +23,32 @@ class GarageData {
     }
 
 
-    public static double getTotalCheckIns() {
+    private double getTotalCheckIns() {
         return totalCheckIns;
     }
 
-    public static double getTotalCheckOutFees() {
+    private double getTotalCheckOutFees() {
         return totalCheckOutFees;
     }
 
-
-    public static double getTotalLostTickets() {
+    private double getTotalLostTickets() {
         return totalLostTickets;
     }
 
-
-    public static double getTotalLostTicketFees() {
+    private double getTotalLostTicketFees() {
         return totalLostTicketFees;
     }
 
 
-    public static double getTotalFees() {
+    private double getTotalFees() {
         return totalFees;
     }
 
 
-    public List<Double> getGarageData() {
-        return garageData;
-    }
-
-    public void setGarageData(List<Double> garageData) {
-        this.garageData = garageData;
-    }
-
     public String fileOuputString() {
         return "TotalCheckOutFees,TotalCheckIns,TotalLostTicketFees,TotalLostTickets,TotalFees\n" +
-                getTotalCheckOutFees() + "," + (int)getTotalCheckIns() + "," + getTotalLostTicketFees() + "," +
-                (int)getTotalLostTickets() + "," + getTotalFees();
+                getTotalCheckOutFees() + "," + (int) getTotalCheckIns() + "," + getTotalLostTicketFees() + "," +
+                (int) getTotalLostTickets() + "," + getTotalFees();
     }
 
     public void writeDataToFile(String s) {
@@ -92,7 +82,7 @@ class GarageData {
             reader = new BufferedReader(new FileReader(path));
             reader.readLine();
 
-            while ((line = reader.readLine()) != null){
+            while ((line = reader.readLine()) != null) {
                 String[] tempList = line.split(",");
                 totalCheckOutFees = Double.parseDouble(tempList[0]);
                 totalCheckIns = Integer.parseInt(tempList[1]);
@@ -105,7 +95,6 @@ class GarageData {
             e.printStackTrace();
             e.getMessage();
         }
-
 
 
     }

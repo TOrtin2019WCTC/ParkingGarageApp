@@ -3,18 +3,17 @@ package ParkingApp;
 import java.text.NumberFormat;
 import java.time.format.DateTimeFormatter;
 
-public class Reciept  {
+public class Receipt {
 
     Ticket ticket;
 
 
-
-    public Reciept(Ticket ticket){
+     public Receipt(Ticket ticket) {
         this.ticket = ticket;
     }
 
 
-    public void generateReciept(){
+    public void generateReceipt() {
 
         DateTimeFormatter fmt = DateTimeFormatter.ofPattern("h:mm");
         System.out.println("\n\n\tBest Value Parking Garage");
@@ -30,18 +29,18 @@ public class Reciept  {
         System.out.println("\n\t------------------------------\n\n");
 
     }
-    public void generateLostReciept(){
+
+    public void generateLostReceipt() {
         NumberFormat numberFormatter = NumberFormat.getCurrencyInstance();
         System.out.println("\n\n\tBest Value Parking Garage");
         System.out.println("\n\t===============================");
-        System.out.println("\n\tReciept for vehicle id " + this.ticket.getVehicleID());
+        System.out.println("\n\treceipt for vehicle id " + this.ticket.getVehicleID());
         System.out.println("\n\n\tLost Ticket");
         System.out.println("\t" + numberFormatter.format(PricesAndFees.LOST_TICKET_FEE));
         System.out.println("\t------------------------------\n\n");
 
 
     }
-
 
 
 }

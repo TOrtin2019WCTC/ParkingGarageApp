@@ -6,13 +6,14 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CheckIn {
-   public static Scanner keyboard = new Scanner(System.in);
-   private List<Ticket> parked_Cars;
+    public static Scanner keyboard = new Scanner(System.in);
+    private List<Ticket> parked_Cars;
 
-    public CheckIn(){
+    public CheckIn() {
+        machine();
     }
 
-    static void machine() {
+    public void machine() {
         System.out.println("\n\n\tBest Value Parking Garage");
         System.out.println("\n\t===============================");
         System.out.println("\t1 - Check/In");
@@ -34,20 +35,12 @@ public class CheckIn {
         }
     }
 
-    public List<Ticket> getParked_Cars(){
-        return parked_Cars;
-    }
 
-//    public void CheckIn(){
-//        Ticket ticket = new Ticket();
-//        new ParkingGarage().addCar(ticket);
-//
-//    }
-    private static void closeGarage(){
+    private void closeGarage() {
 
 
         GarageData.totalFees = GarageData.totalCheckOutFees + GarageData.totalLostTicketFees;
-        //NumberFormat numberFormatter = NumberFormat.getCurrencyInstance();
+
         System.out.println("\n\n\tBest Value Parking Garage");
         System.out.println("\n\t===============================");
         System.out.println("\tActivity to Date\n");

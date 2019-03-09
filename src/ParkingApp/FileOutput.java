@@ -17,18 +17,17 @@ class FileOutput {
         try {
             fos = new FileOutputStream(TICKET_PATH);
             obj = new ObjectOutputStream(fos);
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public void fileWrite(List<Ticket> t) {
 
-        try{
+        try {
             obj.writeObject(t);
 
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -45,15 +44,14 @@ class FileOutput {
 
     }
 
-    public void fileWriteData(String s){
-        try{
+    public void fileWriteData(String s) {
+        try {
             fw.write(s);
             fw.close();
             writer.close();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
 
 
     }
