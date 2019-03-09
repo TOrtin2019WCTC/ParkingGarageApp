@@ -8,13 +8,15 @@ class FileOutput {
 
     FileOutputStream fos = null;
     ObjectOutputStream obj = null;
-    private String path = "/Users/tim/ParkingApp_Test/src/ParkingApp/Garage.txt";
+    BufferedWriter writer = null;
+    FileWriter fw = null;
+    private final String TICKET_PATH = "/Users/tim/ParkingApp_Test/src/ParkingApp/files/Garage.txt";
+
 
     public FileOutput() {
         try {
-            fos = new FileOutputStream(path);
+            fos = new FileOutputStream(TICKET_PATH);
             obj = new ObjectOutputStream(fos);
-
         }
         catch(Exception e) {
             e.printStackTrace();
@@ -40,6 +42,19 @@ class FileOutput {
                 e.printStackTrace();
             }
         }
+
+    }
+
+    public void fileWriteData(String s){
+        try{
+            fw.write(s);
+            fw.close();
+            writer.close();
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+
 
     }
 
