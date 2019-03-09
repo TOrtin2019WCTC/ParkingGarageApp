@@ -6,13 +6,8 @@ import java.util.Scanner;
 
 public class Main {
 
-//    public static int totalCheckIns = 0;
-//    public static double totalCheckOutFees = 0;
-//    public static int totalLostTickets = 0;
-//    public static double totalLostTicketFees = 0;
-//    public static double totalFees = 0;
-    public static ParkingGarage garage = new ParkingGarage();
-    //static FileInput in = new FileInput();
+
+     static ParkingGarage garage = new ParkingGarage();
 
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
@@ -24,14 +19,9 @@ public class Main {
         GarageData garageData = new GarageData();
         garageData.readDataFromFile();
 
-//        for (int i = 0; i < 50;i++){
-//            new Ticket();
-//        }
-        //in.fileClose();
-        //garage.setParked_Cars(list);
         System.out.println("GARAGE OPEN");
         System.out.println("There are currently " + garage.getParked_Cars().size() +
-                " schmucks you haven't left the garage yet\n\n");
+                " schmucks who haven't left the garage yet\n\n");
 
         CheckIn.machine();
         CheckOut.machine();
@@ -56,9 +46,6 @@ public class Main {
         } while (!ans.equals("3"));
 
         GarageData.totalFees = GarageData.totalCheckOutFees + GarageData.totalLostTicketFees;
-        //FileOutput out = new FileOutput();
-        //out.fileWrite(garage.getParked_Cars());
-        //out.fileClose();
         garageData.writeDataToFile(garageData.fileOuputString());
 
         System.out.println("GARAGE CLOSED");
