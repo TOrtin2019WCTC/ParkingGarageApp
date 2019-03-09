@@ -17,11 +17,12 @@ public class CheckOut {
 
 
     static void machine() {
-        System.out.println("Best Value Parking Garage\n===============================");
-        System.out.println("1 - Check/Out");
-        System.out.println("2 - Lost Ticket");
-        System.out.println("=>_");
-        System.out.println("==================================");
+        System.out.println("\n\n\tBest Value Parking Garage");
+        System.out.println("\n\t===============================");
+        System.out.println("\t1 - Check/Out");
+        System.out.println("\t2 - Lost Ticket");
+        System.out.println("\t=>_");
+        System.out.println("\t==================================");
 
         String ans = keyboard.nextLine();
 

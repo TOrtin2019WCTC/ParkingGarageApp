@@ -14,28 +14,36 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
+        String ans;
         int carsAdded = 0;
         int carsRemoved = 0;
 
-        List<Ticket> list = new ArrayList<>();
-        ParkingGarage garage = new ParkingGarage(list);
+       // List<Ticket> list = new ArrayList<>();
+        ParkingGarage garage = new ParkingGarage();
+        garage.garageListInitializer();
         //FileInput in = new FileInput();
         for (int i = 0; i < 50;i++){
             new Ticket();
         }
+
         //in.fileClose();
         //garage.setParked_Cars(list);
         System.out.println("GARAGE OPEN\n\n");
-        String ans;
+
+        CheckIn.machine();
+        CheckOut.machine();
+
 
         do {
-            System.out.println("1 Check/In");
-            System.out.println("2 Check/Out");
+            System.out.println("\t----------------------");
+            System.out.println("\tPRESS 1 TO CHECK IN");
+            System.out.println("\tPRESS2 TO CHECK OUT");
+            System.out.println("\t----------------------");
             ans = keyboard.nextLine();
 
             switch (ans) {
                 case "1":
-                    CheckIn.Machine();
+                    CheckIn.machine();
                     break;
                 case "2":
                     CheckOut.machine();

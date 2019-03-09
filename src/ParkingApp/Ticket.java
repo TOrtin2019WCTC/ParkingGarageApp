@@ -12,7 +12,6 @@ public class Ticket implements Serializable {
     private LocalTime check_Out_Time;
 
 
-
     public Ticket() {
         this.vehicleID = generateVehicleID();
         this.check_In_Time = generateRandomCheckInTime();
@@ -44,14 +43,10 @@ public class Ticket implements Serializable {
         Random random = new Random();
         int hours = 0;
         int minutes = 0;
+        hours = random.nextInt(11 + 1 - 7) + 7;
 
-        hours = random.nextInt(11 + 1 - 7) + 7;;
         minutes = random.nextInt(58) + 1;
-
         check_In_Time = LocalTime.of(hours, minutes);
-
-        System.out.println("CHeck in time" + check_In_Time);
-
         return check_In_Time;
     }
 
@@ -60,7 +55,7 @@ public class Ticket implements Serializable {
         int hours = 0;
         int minutes = 0;
 
-        hours = random.nextInt(23 + 1 - 13) + 13 ;
+        hours = random.nextInt(23 + 1 - 13) + 13;
         minutes = random.nextInt(58) + 1;
 
         check_Out_Time = LocalTime.of(hours, minutes);
@@ -86,7 +81,7 @@ public class Ticket implements Serializable {
                 if (!ticketID.contains(id)) {
                     isAMatch = false;
                     vehicleID = id;
-                }else{
+                } else {
                     id = (int) (Math.random() * (500 - 1) + 1);
                 }
             }

@@ -41,16 +41,15 @@ public class PricesAndFees {
 
     public static String currencyFormatter(Object o){
         String currencyFormatted = null;
-        try {
 
-            while (o != null) {
+             if (o != null ) {
                 NumberFormat numberFormatter = NumberFormat.getCurrencyInstance();
                 currencyFormatted = numberFormatter.format(o);
-            }
+            }else{
+                 throw new IllegalArgumentException();
+             }
 
-        }catch(Exception e){
-            e.printStackTrace();
-        }
+
         return currencyFormatted;
     }
 

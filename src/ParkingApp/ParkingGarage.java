@@ -3,14 +3,15 @@ package ParkingApp;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ParkingGarage {
+ class ParkingGarage {
 
     static List<Ticket> parked_Cars;
+    private boolean isListInitialized = false;
     //private List<String> garageInfoToDate;
 
 
     public ParkingGarage(List<Ticket> list) {
-        parked_Cars = new ArrayList<>();
+        //parked_Cars = new ArrayList<>();
         //parked_Cars = list;
 //        totalMoneyCollectedToDate = 0;
 //        garageInfoToDate = new ArrayList<>();
@@ -34,16 +35,12 @@ public class ParkingGarage {
         this.parked_Cars = parked_Cars;
     }
 
-
     public void addCar(Ticket ticket) {
         parked_Cars.add(ticket);
-        System.out.println(parked_Cars.size());
-        System.out.println("total cars added " + parked_Cars.size());
     }
 
     public void removeCar(int i) {
         parked_Cars.remove(i);
-        System.out.println(parked_Cars.size());
     }
 
     public void testDisplay() {
@@ -55,6 +52,14 @@ public class ParkingGarage {
             System.out.println(t.toString());
             System.out.println();
         }
+    }
+
+    public void garageListInitializer(){
+        while(!isListInitialized){
+            parked_Cars = new ArrayList<>();
+            this.isListInitialized = true;
+        }
+
     }
 
 }
