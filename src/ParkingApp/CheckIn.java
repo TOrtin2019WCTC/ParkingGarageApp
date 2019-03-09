@@ -45,6 +45,7 @@ public class CheckIn {
 //    }
     private static void closeGarage(){
 
+
         GarageData.totalFees = GarageData.totalCheckOutFees + GarageData.totalLostTicketFees;
         //NumberFormat numberFormatter = NumberFormat.getCurrencyInstance();
         System.out.println("\n\n\tBest Value Parking Garage");

@@ -57,8 +57,8 @@ class GarageData {
 
     public String fileOuputString() {
         return "TotalCheckOutFees,TotalCheckIns,TotalLostTicketFees,TotalLostTickets,TotalFees\n" +
-                getTotalCheckOutFees() + "," + getTotalCheckIns() + "," + getTotalLostTicketFees() + "," +
-                getTotalLostTickets() + "," + getTotalFees();
+                getTotalCheckOutFees() + "," + (int)getTotalCheckIns() + "," + getTotalLostTicketFees() + "," +
+                (int)getTotalLostTickets() + "," + getTotalFees();
     }
 
     public void writeDataToFile(String s) {
@@ -70,6 +70,7 @@ class GarageData {
             writer.write(s);
             writer.close();
 
+            Main.garage.writeTicketsToFile();
 
         } catch (Exception e) {
             e.printStackTrace();

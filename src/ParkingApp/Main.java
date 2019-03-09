@@ -20,15 +20,18 @@ public class Main {
         // List<Ticket> list = new ArrayList<>();
         garage = new ParkingGarage();
         garage.garageListInitializer();
+        garage.readTicketsFromFile();
         GarageData garageData = new GarageData();
         garageData.readDataFromFile();
 
-        for (int i = 0; i < 50;i++){
-            new Ticket();
-        }
+//        for (int i = 0; i < 50;i++){
+//            new Ticket();
+//        }
         //in.fileClose();
         //garage.setParked_Cars(list);
-        System.out.println("GARAGE OPEN\n\n");
+        System.out.println("GARAGE OPEN");
+        System.out.println("There are currently " + garage.getParked_Cars().size() +
+                " schmucks you haven't left the garage yet\n\n");
 
         CheckIn.machine();
         CheckOut.machine();
