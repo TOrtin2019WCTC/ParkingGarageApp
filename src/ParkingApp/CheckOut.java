@@ -1,5 +1,6 @@
 package ParkingApp;
 
+import java.time.Duration;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Random;
@@ -38,44 +39,64 @@ public class CheckOut {
 
     private static void checkOut() {
 
-        ParkingGarage garage = new ParkingGarage();
         Random random = new Random();
-        int index = random.nextInt(garage.getParked_Cars().size());
-        Ticket ticketToRemove = garage.getParked_Cars().get(index);
-        generateRandomCheckOutTime(ticketToRemove);
-        garage.removeCar(index);
-       // Reciept reciept = new Reciept(ticketToRemove);
-        PricesAndFees.calculateFees(ticketToRemove);
+        int index = random.nextInt(Main.garage.getParked_Cars().size());
+        Ticket ticketToRemove = Main.garage.getParked_Cars().get(index);
+        ticketToRemove.setCheck_Out_Time(generateRandomCheckOutTime());
+        Main.garage.removeCar(index);
+        Reciept reciept = new Reciept(ticketToRemove);
+        reciept.generateReciept();
+        //PricesAndFees.calculateFees(ticketToRemove);
 
 
     }
 
     private static void lostTicket() {
-        ParkingGarage garage = new ParkingGarage();
         Random random = new Random();
-        int index = random.nextInt(garage.getParked_Cars().size());
-        Ticket ticketToRemove = garage.getParked_Cars().get(index);
-        garage.removeCar(index);
+        int index = random.nextInt(Main.garage.getParked_Cars().size());
+        Ticket ticketToRemove = Main.garage.getParked_Cars().get(index);
+        Main.garage.removeCar(index);
         Reciept reciept = new Reciept(ticketToRemove);
         reciept.generateLostReciept();
         Main.totalLostTickets++;
         Main.totalLostTicketFees += PricesAndFees.LOST_TICKET_FEE;
     }
 
-    private static LocalTime generateRandomCheckOutTime(Ticket ticket) {
+    private static LocalTime generateRandomCheckOutTime() {
         LocalTime checkOutTime = null;
         Random random = new Random();
         int hours = 0;
         int minutes = 0;
 
-        hours = random.nextInt(23 + 1 - 13) + 13 ;
+        hours = random.nextInt(23 + 1 - 13) + 13;
         minutes = random.nextInt(58) + 1;
 
         checkOutTime = LocalTime.of(hours, minutes);
-        ticket.setCheck_Out_Time(checkOutTime);
+       // ticket.setCheck_Out_Time(checkOutTime);
 
         return checkOutTime;
     }
+
+    static long calculateHours(Ticket ticket) {
+         long hours = 0;
+
+         hours = Duration.between(ticket.getCheck_In_Time(),ticket.getCheck_Out_Time()).toHours();
+
+        return hours;
+    }
+
+    static long calculateMinutes(Ticket ticket) {
+        long minutes = 0;
+
+        minutes = Duration.between(ticket.getCheck_In_Time(),ticket.getCheck_Out_Time()).toMinutes();
+
+        while (minutes > 60){
+            minutes -= 60;
+        }
+        return minutes;
+    }
+
+
 
 //    public static String calculateFees(Ticket ticket) {
 //        NumberFormat numberFormatter = NumberFormat.getCurrencyInstance();

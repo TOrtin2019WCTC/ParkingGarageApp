@@ -11,18 +11,20 @@ public class Main {
     public static int totalLostTickets = 0;
     public static double totalLostTicketFees = 0;
     public static double totalFees = 0;
+    public static ParkingGarage garage = new ParkingGarage();
+    protected static FileInput in = new FileInput();
 
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
         String ans;
         // List<Ticket> list = new ArrayList<>();
-        ParkingGarage garage = new ParkingGarage();
+        garage = new ParkingGarage();
         garage.garageListInitializer();
-        //FileInput in = new FileInput();
+
         for (int i = 0; i < 50;i++){
             new Ticket();
         }
-        //in.fileClose();
+        in.fileClose();
         //garage.setParked_Cars(list);
         System.out.println("GARAGE OPEN\n\n");
 
