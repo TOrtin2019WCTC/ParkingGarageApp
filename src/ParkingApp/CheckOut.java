@@ -1,8 +1,6 @@
 package ParkingApp;
 
-import java.text.NumberFormat;
 import java.time.LocalTime;
-import java.util.Currency;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -47,7 +45,7 @@ public class CheckOut {
         garage.removeCar(index);
        // Reciept reciept = new Reciept(ticketToRemove);
         PricesAndFees.calculateFees(ticketToRemove);
-        Main.totalCheckOuts++;
+
 
     }
 

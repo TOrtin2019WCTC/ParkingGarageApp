@@ -25,6 +25,7 @@ public class CheckIn {
 
         switch (ans) {
             case "1":
+                Main.totalCheckIns++;
                 Ticket t = new Ticket();
                 break;
             case "3":
@@ -48,8 +49,8 @@ public class CheckIn {
         //NumberFormat numberFormatter = NumberFormat.getCurrencyInstance();
         System.out.println("\n\nBest Value Parking Garage");
         System.out.println("\n============================");
-        System.out.println("Activity to Date");
-        System.out.println(PricesAndFees.currencyFormatter(Main.totalCheckOutFees) + " was collected from " + Main.totalCheckOuts +
+        System.out.println("Activity to Date\n");
+        System.out.println(PricesAndFees.currencyFormatter(Main.totalCheckOutFees) + " was collected from " + Main.totalCheckIns +
                 " Check Ins");
         System.out.println(PricesAndFees.currencyFormatter(Main.totalLostTicketFees) + " was collected from " + Main.totalLostTickets +
                 " Lost Tickets\n");

@@ -5,14 +5,8 @@ import java.util.List;
 
 public class ParkingGarage {
 
-    public static List<Ticket> parked_Cars;
-    private List<String> garageInfoToDate;
-    private int totalCars;
-    private int carsAdded;
-    protected int totalCarsToDate;
-    public double totalMoneyCollectedToDate;
-    private int carsRemoved;
-    private double totalAmountsPaid;
+    static List<Ticket> parked_Cars;
+    //private List<String> garageInfoToDate;
 
 
     public ParkingGarage(List<Ticket> list) {
@@ -40,15 +34,9 @@ public class ParkingGarage {
         this.parked_Cars = parked_Cars;
     }
 
-    public int getTotalCarsToDate() {
-        return totalCarsToDate;
-    }
-
-    public void setTotalCarsToDate(int totalCarsToDate) {
-        this.totalCarsToDate = totalCarsToDate;
-    }
 
     public void addCar(Ticket ticket) {
+        parked_Cars.add(ticket);
         System.out.println(parked_Cars.size());
         System.out.println("total cars added " + parked_Cars.size());
     }
@@ -56,17 +44,6 @@ public class ParkingGarage {
     public void removeCar(int i) {
         parked_Cars.remove(i);
         System.out.println(parked_Cars.size());
-    }
-    public void setCarsAdded(int i){
-        carsAdded = i;
-    }
-    public int getCarsAdded(){
-        return carsAdded;
-    }
-
-
-    public double getTotalAmountsPaid() {
-        return totalAmountsPaid;
     }
 
     public void testDisplay() {

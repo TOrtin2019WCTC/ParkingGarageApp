@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static int totalCheckOuts = 0;
+    public static int totalCheckIns = 0;
     public static double totalCheckOutFees = 0;
     public static int totalLostTickets = 0;
     public static double totalLostTicketFees = 0;
