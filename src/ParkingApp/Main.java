@@ -21,6 +21,7 @@ public class Main {
         garage = new ParkingGarage();
         garage.garageListInitializer();
         GarageData garageData = new GarageData();
+        garageData.readDataFromFile();
 
         for (int i = 0; i < 50;i++){
             new Ticket();
