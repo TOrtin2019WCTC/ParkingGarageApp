@@ -18,8 +18,12 @@ public class Reciept  {
         System.out.println("\n\n\tBest Value Parking Garage");
         System.out.println("\n\t===============================");
         System.out.println("\n\tReceipt for vehicle id " + this.ticket.getVehicleID());
-        System.out.println("\n\t" + CheckOut.calculateHours(this.ticket) + " hours parked " + this.ticket.getCheck_In_Time().getHour()
-                + "am - " + this.ticket.getCheck_Out_Time().getHour() + "pm");
+
+        System.out.println("\n\t" + CheckOut.calculateHours(this.ticket) + " hours "
+                + CheckOut.calculateMinutes(this.ticket) + " minutes parked"
+                + "\n" + this.ticket.getCheck_In_Time()
+                + "am - " + this.ticket.getCheck_Out_Time()+ "pm");
+
         System.out.println("\n\t" + PricesAndFees.currencyFormatter(PricesAndFees.calculateFees(this.ticket)));
         System.out.println("\n\t------------------------------\n\n");
 

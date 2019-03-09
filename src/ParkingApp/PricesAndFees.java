@@ -13,11 +13,10 @@ public class PricesAndFees {
     static final int MAX_CHARGEABLE_HOURS = 15;
 
 
-
     static double calculateFees(Ticket ticket) {
 
         double fee = 0;
-        long hours ;
+        long hours;
         long minutes;
 
         try {
@@ -56,7 +55,6 @@ public class PricesAndFees {
 
         return currencyFormatted;
     }
-
 
 
 }
