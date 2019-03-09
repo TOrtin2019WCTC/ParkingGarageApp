@@ -21,7 +21,7 @@ public class Main {
         ParkingGarage garage = new ParkingGarage(list);
         //FileInput in = new FileInput();
         for (int i = 0; i < 50;i++){
-            list.add(new Ticket());
+            new Ticket();
         }
         //in.fileClose();
         //garage.setParked_Cars(list);

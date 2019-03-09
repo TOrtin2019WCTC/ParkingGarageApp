@@ -11,7 +11,7 @@ public class ParkingGarage {
 
     public ParkingGarage(List<Ticket> list) {
         parked_Cars = new ArrayList<>();
-        parked_Cars = list;
+        //parked_Cars = list;
 //        totalMoneyCollectedToDate = 0;
 //        garageInfoToDate = new ArrayList<>();
 //        totalCars = new ArrayList<>();
