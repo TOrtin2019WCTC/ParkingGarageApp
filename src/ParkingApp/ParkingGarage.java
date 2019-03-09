@@ -43,16 +43,6 @@ import java.util.List;
         parked_Cars.remove(i);
     }
 
-    public void testDisplay() {
-//        System.out.println("Total cars to date:" + totalCarsToDate);
-//        System.out.println("Cars added " + carsAdded);
-//        System.out.println("Cars removed " + carsRemoved);
-        System.out.println(parked_Cars.size() + " Cars in garage");
-        for (Ticket t: parked_Cars){
-            System.out.println(t.toString());
-            System.out.println();
-        }
-    }
 
     public void garageListInitializer(){
         while(!isListInitialized){

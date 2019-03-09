@@ -24,6 +24,7 @@ public class PricesAndFees {
             hours = CheckOut.calculateHours(ticket);
             minutes = CheckOut.calculateMinutes(ticket);
 
+            hours += minutes > 0 ? 1 : 0;
 
             if (hours <= MINIMUM_HOURS) {
                 fee = MINIMUM_FEE;
@@ -37,10 +38,7 @@ public class PricesAndFees {
             e.printStackTrace();
         }
 
-
-        System.out.println(fee);
-
-        Main.totalCheckOutFees += fee;
+        GarageData.totalCheckOutFees += fee;
 
         return fee;
     }

@@ -15,23 +15,23 @@ public class Reciept  {
 
     public void generateReciept(){
 
-        System.out.println("\n\nBest Value Parking Garage");
-        System.out.println("\n============================");
-        System.out.println("\nReceipt for vehicle id " + this.ticket.getVehicleID());
-        System.out.println("\n" + CheckOut.calculateHours(this.ticket) + " hours parked " + this.ticket.getCheck_In_Time().getHour()
+        System.out.println("\n\n\tBest Value Parking Garage");
+        System.out.println("\n\t===============================");
+        System.out.println("\n\tReceipt for vehicle id " + this.ticket.getVehicleID());
+        System.out.println("\n\t" + CheckOut.calculateHours(this.ticket) + " hours parked " + this.ticket.getCheck_In_Time().getHour()
                 + "am - " + this.ticket.getCheck_Out_Time().getHour() + "pm");
-        System.out.println("$" + PricesAndFees.calculateFees(this.ticket));
-        System.out.println("------------------------------\n\n");
+        System.out.println("\n\t" + PricesAndFees.currencyFormatter(PricesAndFees.calculateFees(this.ticket)));
+        System.out.println("\n\t------------------------------\n\n");
 
     }
     public void generateLostReciept(){
         NumberFormat numberFormatter = NumberFormat.getCurrencyInstance();
-        System.out.println("\n\nBest Value Parking Garage");
-        System.out.println("\n============================");
-        System.out.println("\nReciept for vehicle id " + this.ticket.getVehicleID());
-        System.out.println("\n\nLost Ticket");
-        System.out.println(numberFormatter.format(PricesAndFees.LOST_TICKET_FEE));
-        System.out.println("------------------------------\n\n");
+        System.out.println("\n\n\tBest Value Parking Garage");
+        System.out.println("\n\t===============================");
+        System.out.println("\n\tReciept for vehicle id " + this.ticket.getVehicleID());
+        System.out.println("\n\n\tLost Ticket");
+        System.out.println("\t" + numberFormatter.format(PricesAndFees.LOST_TICKET_FEE));
+        System.out.println("\t------------------------------\n\n");
 
 
     }

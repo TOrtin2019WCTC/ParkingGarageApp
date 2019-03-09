@@ -8,8 +8,8 @@ import java.util.Scanner;
 
 public class CheckOut {
     public static Scanner keyboard = new Scanner(System.in);
-    private List<Ticket> parked_Cars;
-    private int ticketNumber;
+//    private List<Ticket> parked_Cars;
+//    private int ticketNumber;
 
 
     public CheckOut() {
@@ -58,8 +58,8 @@ public class CheckOut {
         Main.garage.removeCar(index);
         Reciept reciept = new Reciept(ticketToRemove);
         reciept.generateLostReciept();
-        Main.totalLostTickets++;
-        Main.totalLostTicketFees += PricesAndFees.LOST_TICKET_FEE;
+        GarageData.totalLostTickets++;
+        GarageData.totalLostTicketFees += PricesAndFees.LOST_TICKET_FEE;
     }
 
     private static LocalTime generateRandomCheckOutTime() {

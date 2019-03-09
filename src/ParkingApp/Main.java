@@ -6,13 +6,13 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static int totalCheckIns = 0;
-    public static double totalCheckOutFees = 0;
-    public static int totalLostTickets = 0;
-    public static double totalLostTicketFees = 0;
-    public static double totalFees = 0;
+//    public static int totalCheckIns = 0;
+//    public static double totalCheckOutFees = 0;
+//    public static int totalLostTickets = 0;
+//    public static double totalLostTicketFees = 0;
+//    public static double totalFees = 0;
     public static ParkingGarage garage = new ParkingGarage();
-    protected static FileInput in = new FileInput();
+    static FileInput in = new FileInput();
 
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
@@ -20,6 +20,7 @@ public class Main {
         // List<Ticket> list = new ArrayList<>();
         garage = new ParkingGarage();
         garage.garageListInitializer();
+        new GarageData();
 
         for (int i = 0; i < 50;i++){
             new Ticket();
@@ -37,7 +38,7 @@ public class Main {
             System.out.println("\tPRESS 1 TO CHECK IN");
             System.out.println("\tPRESS 2 TO CHECK OUT");
             System.out.println("\tPRESS 3 TO EXIT PROGRAM");
-            System.out.println("\t----------------------");
+            System.out.println("\t----------------------\n\n");
             ans = keyboard.nextLine();
 
             switch (ans) {
@@ -50,10 +51,12 @@ public class Main {
 
         } while (!ans.equals("3"));
 
-        totalFees = totalCheckOutFees + totalLostTicketFees;
+        GarageData.totalFees = GarageData.totalCheckOutFees + GarageData.totalLostTicketFees;
         FileOutput out = new FileOutput();
         out.fileWrite(garage.getParked_Cars());
         out.fileClose();
+
+        System.out.println("GARAGE CLOSED");
 
 
     }
