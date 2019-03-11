@@ -25,7 +25,6 @@ public class CheckIn {
 
         switch (ans) {
             case "1":
-                //GarageData.totalCheckIns++;
                 Ticket ticket = new Ticket();
                 System.out.println("Welcome, your check-in time is: " + ticket.getCheck_In_Time() + "am");
                 break;
