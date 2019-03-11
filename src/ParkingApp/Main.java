@@ -14,13 +14,14 @@ public class Main {
         // List<Ticket> list = new ArrayList<>();
         garage = new ParkingGarage();
         garage.garageListInitializer();
+        System.out.println("GARAGE OPEN");
         garage.readTicketsFromFile();
         GarageData garageData = new GarageData();
         garageData.readDataFromFile();
 
-        System.out.println("GARAGE OPEN");
-        System.out.println("There are currently " + garage.getParked_Cars().size() +
-                " schmucks who haven't left the garage yet\n\n");
+            System.out.println("There is currently " + garage.getParked_Cars().size() +
+                    " vehicle(s) in the garage \n\n");
+
 
         new CheckIn();
         new CheckOut();

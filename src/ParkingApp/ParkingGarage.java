@@ -1,5 +1,7 @@
 package ParkingApp;
 
+
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
@@ -27,8 +29,10 @@ class ParkingGarage {
         parked_Cars.add(ticket);
     }
 
-    public void removeCar(int i) {
-        parked_Cars.remove(i);
+    public void removeCar(int i) throws IllegalArgumentException {
+
+            parked_Cars.remove(i);
+
     }
 
 
@@ -70,9 +74,11 @@ class ParkingGarage {
                 endOfFile = true;
             }
 
+
         } catch (Exception e) {
-            e.printStackTrace();
-            e.getMessage();
+            System.out.println("There are currently no vehicles in the garage");
+//            e.printStackTrace();
+//            e.getMessage();
         }
     }
 

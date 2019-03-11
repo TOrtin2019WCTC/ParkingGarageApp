@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class CheckIn {
     public static Scanner keyboard = new Scanner(System.in);
-    private List<Ticket> parked_Cars;
+    //private List<Ticket> parked_Cars;
 
     public CheckIn() {
         machine();
@@ -25,9 +25,9 @@ public class CheckIn {
 
         switch (ans) {
             case "1":
-                GarageData.totalCheckIns++;
-                Ticket t = new Ticket();
-                System.out.println("Welcome, your check-in time is: " + t.getCheck_In_Time() + "am");
+                //GarageData.totalCheckIns++;
+                Ticket ticket = new Ticket();
+                System.out.println("Welcome, your check-in time is: " + ticket.getCheck_In_Time() + "am");
                 break;
             case "3":
                 closeGarage();

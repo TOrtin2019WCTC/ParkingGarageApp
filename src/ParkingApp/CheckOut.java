@@ -2,8 +2,6 @@ package ParkingApp;
 
 import java.time.Duration;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
-import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -37,27 +35,46 @@ public class CheckOut {
     }
 
     private void checkOut() {
+        try {
+            Random random = new Random();
+            int index = random.nextInt(Main.garage.getParked_Cars().size());
+            Ticket ticketToRemove = Main.garage.getParked_Cars().get(index);
+            ticketToRemove.setCheck_Out_Time(generateRandomCheckOutTime());
+            Main.garage.removeCar(index);
+            Receipt receipt = new Receipt(ticketToRemove);
+            receipt.generateReceipt();
 
-        Random random = new Random();
-        int index = random.nextInt(Main.garage.getParked_Cars().size());
-        Ticket ticketToRemove = Main.garage.getParked_Cars().get(index);
-        ticketToRemove.setCheck_Out_Time(generateRandomCheckOutTime());
-        Main.garage.removeCar(index);
-        Receipt reciept = new Receipt(ticketToRemove);
-        reciept.generateReceipt();
+        } catch (IllegalArgumentException e) {
+            System.out.println("There are currently no cars in the garage, perhaps you illegally entered and never" +
+                    " received a ticket");
+            System.out.print("Generating lost ticket receipt.....\n");
+            new Receipt().generateLostReceiptWithNoTicketID();
+
+        }
+        GarageData.totalLostTickets++;
+        GarageData.totalLostTicketFees += PricesAndFees.LOST_TICKET_FEE;
 
 
     }
 
     private void lostTicket() {
-        Random random = new Random();
-        int index = random.nextInt(Main.garage.getParked_Cars().size());
-        Ticket ticketToRemove = Main.garage.getParked_Cars().get(index);
-        Main.garage.removeCar(index);
-        Receipt reciept = new Receipt(ticketToRemove);
-        reciept.generateLostReceipt();
+        try {
+            Random random = new Random();
+            int index = random.nextInt(Main.garage.getParked_Cars().size());
+            Ticket ticketToRemove = Main.garage.getParked_Cars().get(index);
+            Main.garage.removeCar(index);
+            new Receipt(ticketToRemove).generateLostReceipt();
+
+
+        } catch (Exception e) {
+            new Receipt().generateLostReceiptWithNoTicketID();
+            GarageData.totalLostTickets++;
+            GarageData.totalLostTicketFees += PricesAndFees.LOST_TICKET_FEE;
+        }
+
         GarageData.totalLostTickets++;
         GarageData.totalLostTicketFees += PricesAndFees.LOST_TICKET_FEE;
+
     }
 
     private LocalTime generateRandomCheckOutTime() {
