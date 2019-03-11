@@ -2,8 +2,7 @@ package ParkingApp;
 
 import java.text.NumberFormat;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
+
 
 public class Receipt {
 

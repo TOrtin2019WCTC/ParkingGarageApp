@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class CheckOut {
 
-    public static Scanner keyboard = new Scanner(System.in);
+    //private Scanner keyboard = new Scanner(System.in);
 
     public CheckOut() {
         machine();
@@ -22,7 +22,7 @@ public class CheckOut {
         System.out.println("\t=>_");
         System.out.println("\t==================================");
 
-        String ans = keyboard.nextLine();
+        String ans = Main.keyboard.nextLine();
 
         switch (ans) {
             case "1":

@@ -7,9 +7,10 @@ public class Main {
 
 
     static ParkingGarage garage;
+    static Scanner keyboard = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Scanner keyboard = new Scanner(System.in);
+
         String ans;
         // List<Ticket> list = new ArrayList<>();
         garage = new ParkingGarage();
@@ -19,7 +20,7 @@ public class Main {
         GarageData garageData = new GarageData();
         garageData.readDataFromFile();
 
-            System.out.println("There is currently " + garage.getParked_Cars().size() +
+            System.out.println("There are currently " + garage.getParked_Cars().size() +
                     " vehicle(s) in the garage \n\n");
 
 

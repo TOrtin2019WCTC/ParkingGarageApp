@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CheckIn {
-    public static Scanner keyboard = new Scanner(System.in);
+    //public static Scanner keyboard = new Scanner(System.in);
     //private List<Ticket> parked_Cars;
 
     public CheckIn() {
@@ -17,11 +17,11 @@ public class CheckIn {
         System.out.println("\n\n\tBest Value Parking Garage");
         System.out.println("\n\t===============================");
         System.out.println("\t1 - Check/In");
-        System.out.println("\t3 - Close Garage");
+        System.out.println("\t3 - Close Garage"); //generateReport()?
         System.out.println("\t=>_");
         System.out.println("\t==================================\n\n");
 
-        String ans = keyboard.nextLine();
+        String ans = Main.keyboard.nextLine();
 
         switch (ans) {
             case "1":
@@ -34,7 +34,7 @@ public class CheckIn {
         }
     }
 
-
+// maybe change name to generateReport?
     private void closeGarage() {
 
 

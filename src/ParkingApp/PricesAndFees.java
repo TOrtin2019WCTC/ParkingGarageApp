@@ -1,8 +1,7 @@
 package ParkingApp;
 
 import java.text.NumberFormat;
-import java.time.Duration;
-import java.util.Currency;
+
 
 public class PricesAndFees {
     static final double MINIMUM_FEE = 5.00; // 3 hour minimum
