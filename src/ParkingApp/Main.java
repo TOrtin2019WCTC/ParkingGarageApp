@@ -31,7 +31,7 @@ public class Main {
             System.out.println("\t----------------------");
             System.out.println("\tPRESS 1 TO CHECK IN");
             System.out.println("\tPRESS 2 TO CHECK OUT");
-            System.out.println("\tPRESS 3 TO EXIT PROGRAM");
+            System.out.println("\tPRESS 3 TO EXIT PROGRAM AND WRITE DATA TO FILE");
             System.out.println("\t----------------------\n\n");
             ans = keyboard.nextLine();
 

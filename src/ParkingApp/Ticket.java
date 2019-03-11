@@ -50,7 +50,7 @@ public class Ticket implements Serializable {
         int minutes = 0;
         hours = random.nextInt(11 + 1 - 7) + 7;
 
-        minutes = random.nextInt(58) + 1;
+        minutes = random.nextInt(59) + 1;
         check_In_Time = LocalTime.of(hours, minutes);
         return check_In_Time;
     }
@@ -60,8 +60,8 @@ public class Ticket implements Serializable {
         int hours = 0;
         int minutes = 0;
 
-        hours = random.nextInt(22 + 1 - 13) + 13;
-        minutes = random.nextInt(58) + 1;
+        hours = random.nextInt(11) + 13;
+        minutes = random.nextInt(60);
 
         check_Out_Time = LocalTime.of(hours, minutes);
 

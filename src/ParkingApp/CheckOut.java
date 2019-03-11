@@ -83,8 +83,8 @@ public class CheckOut {
         int hours = 0;
         int minutes = 0;
 
-        hours = random.nextInt(23 + 1 - 13) + 13;
-        minutes = random.nextInt(58) + 1;
+        hours = random.nextInt(11) + 13;
+        minutes = random.nextInt(59);
 
         checkOutTime = LocalTime.of(hours, minutes);
 
