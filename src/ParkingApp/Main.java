@@ -46,7 +46,7 @@ public class Main {
         } while (!ans.equals("3"));
 
         GarageData.totalFees = GarageData.totalCheckOutFees + GarageData.totalLostTicketFees;
-        garageData.writeDataToFile(garageData.fileOuputString());
+        garageData.writeDataToFile(garageData.fileOutputString());
 
         System.out.println("GARAGE CLOSED");
 

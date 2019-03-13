@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 
 public class Receipt {
 
-    Ticket ticket;
+    private Ticket ticket;
 
 
      public Receipt(Ticket ticket) {

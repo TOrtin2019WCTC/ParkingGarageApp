@@ -21,12 +21,6 @@ public class Ticket implements Serializable {
 
     }
 
-    public int generateLostTicketID() {
-        this.vehicleID = generateVehicleID();
-
-        return vehicleID;
-    }
-
     public int getVehicleID() {
         return vehicleID;
     }

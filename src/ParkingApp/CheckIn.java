@@ -1,13 +1,7 @@
 package ParkingApp;
 
-import java.text.NumberFormat;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
 public class CheckIn {
-    //public static Scanner keyboard = new Scanner(System.in);
-    //private List<Ticket> parked_Cars;
+
 
     public CheckIn() {
         machine();

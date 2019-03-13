@@ -23,7 +23,7 @@ class GarageData {
     }
 
 
-    private double getTotalCheckIns() {
+    private int getTotalCheckIns() {
         return totalCheckIns;
     }
 
@@ -31,7 +31,7 @@ class GarageData {
         return totalCheckOutFees;
     }
 
-    private double getTotalLostTickets() {
+    private int getTotalLostTickets() {
         return totalLostTickets;
     }
 
@@ -45,7 +45,7 @@ class GarageData {
     }
 
 
-    public String fileOuputString() {
+    public String fileOutputString() {
         return "TotalCheckOutFees,TotalCheckIns,TotalLostTicketFees,TotalLostTickets,TotalFees\n" +
                 getTotalCheckOutFees() + "," + (int) getTotalCheckIns() + "," + getTotalLostTicketFees() + "," +
                 (int) getTotalLostTickets() + "," + getTotalFees();
