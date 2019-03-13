@@ -12,7 +12,6 @@ public class Main {
     public static void main(String[] args) {
 
         String ans;
-        // List<Ticket> list = new ArrayList<>();
         garage = new ParkingGarage();
         garage.garageListInitializer();
         System.out.println("GARAGE OPEN");
@@ -20,8 +19,11 @@ public class Main {
         GarageData garageData = new GarageData();
         garageData.readDataFromFile();
 
+        if (garage.getParked_Cars().size() > 0){
             System.out.println("There are currently " + garage.getParked_Cars().size() +
                     " vehicle(s) in the garage \n\n");
+        }
+
 
 
         new CheckIn();
